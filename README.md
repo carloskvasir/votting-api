@@ -1,5 +1,7 @@
 # Votting
 
+[![CircleCI](https://circleci.com/gh/carloskvasir/votting-api.svg?style=shield)](https://circleci.com/gh/carloskvasir/votting-api)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
