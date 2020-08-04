@@ -24,6 +24,7 @@ defmodule VottingWeb.ConnCase do
       import Phoenix.ConnTest
       import VottingWeb.ConnCase
 
+      alias Ecto.Adapters.SQL.Sandbox
       alias VottingWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
@@ -32,10 +33,10 @@ defmodule VottingWeb.ConnCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Votting.Repo)
+    :ok = Sandbox.checkout(Votting.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Votting.Repo, {:shared, self()})
+      Sandbox.mode(Votting.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}
